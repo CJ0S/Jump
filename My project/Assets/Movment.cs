@@ -4,7 +4,7 @@ using UnityEngine;
 public class Movment : MonoBehaviour
 {
     float speed = 10f;
-    float rspeed = 125f;
+    float rspeed = 125f; 
 
     Rigidbody ourRigidbody;
     // Start is called before the first frame update
@@ -12,7 +12,6 @@ public class Movment : MonoBehaviour
     {
         ourRigidbody = GetComponent<Rigidbody>();
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -30,7 +29,7 @@ public class Movment : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.D))
         {
-            transform.position += speed * transform.forward * Time.deltaTime;
+            transform.position += speed * transform.right * Time.deltaTime;
         }
         if (Input.GetKey(KeyCode.LeftArrow))
         {
@@ -40,10 +39,13 @@ public class Movment : MonoBehaviour
         {
             transform.Rotate(transform.up, rspeed * Time.deltaTime);
         }
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.J))
         {
-            ourRigidbody.AddExplosionForce(25, transform.position + Vector3.down, 3);
+            {
+                ourRigidbody.AddExplosionForce(5, transform.position + Vector3.down, 3);
+            }
         }
-    }
 
+
+    }
 }
